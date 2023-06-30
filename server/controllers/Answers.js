@@ -22,7 +22,7 @@ const updateNoOfQuestions = async (_id, noOfAnswers) => {
     try {
         await Questions.findByIdAndUpdate( _id, { $set: { 'noOfAnswers' : noOfAnswers}})
     } catch (error) {
-        console.log(error)
+        console.log(error) 
     }
 }
 
