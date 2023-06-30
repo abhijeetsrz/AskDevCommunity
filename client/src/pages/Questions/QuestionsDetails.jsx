@@ -109,10 +109,22 @@ const QuestionsDetails = () => {
     }
 
     const handleUpVote = () => {
-      dispatch(voteQuestion(id, "upVote", User.result._id))
+      if(User === null){
+         alert('Login or Signup to Upvote')
+         Navigate('/Auth')
+      } 
+      else{
+         dispatch(voteQuestion(id, "upVote", User.result._id))
+      }
     }
     const handleDownVote = () => {
-      dispatch(voteQuestion(id, "downVote", User.result._id))
+      if(User === null){
+         alert('Login or Signup to Downvote')
+         Navigate('/Auth')
+      } 
+      else{
+         dispatch(voteQuestion(id, "downVote", User.result._id))
+      }
     }
 
   return (
