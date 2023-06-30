@@ -109,10 +109,22 @@ const QuestionsDetails = () => {
     }
 
     const handleUpVote = () => {
-      dispatch(voteQuestion(id, "upVote", User.result._id))
+      if(User === null){
+         alert('Login or Signup to Upvote')
+         Navigate('/Auth')
+      } 
+      else{
+         dispatch(voteQuestion(id, "upVote", User.result._id))
+      }
     }
     const handleDownVote = () => {
-      dispatch(voteQuestion(id, "downVote", User.result._id))
+      if(User === null){
+         alert('Login or Signup to Downvote')
+         Navigate('/Auth')
+      } 
+      else{
+         dispatch(voteQuestion(id, "downVote", User.result._id))
+      }
     }
 
   return (
@@ -179,7 +191,7 @@ const QuestionsDetails = () => {
                   <h3>Your Answer</h3>
                   <form onSubmit={(e) => { handlePostAns(e, question.answer.length) }}>
                     <textarea name="" id="" cols="30" rows="10" onChange={(e) => setAnswer(e.target.value)}></textarea><br/>
-                    <input type='Submit' className='post-ans-btn' value='Post Your Answer'/>
+                    <input onClick={() => {}} type='Submit' className='post-ans-btn' value='Post Your Answer'/>
                   </form>
                   <p>
                     Browse other Question tagged
