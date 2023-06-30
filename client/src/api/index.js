@@ -7,7 +7,7 @@ API.interceptors.request.use((req) => {
         req.headers.authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`
     }
     return req;
-})
+}) 
 
 export const logIn = (authData) => API.post('/user/login', authData);
 export const signUp = (authData) => API.post('/user/signup', authData);  
