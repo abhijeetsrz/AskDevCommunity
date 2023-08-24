@@ -18,3 +18,21 @@ export const updateProfile = (id, updateData) => async (dispatch) => {
         console.log(error)
     }
 }
+
+export const friendAdd = (id, friendData) => async (dispatch) => {
+    try {
+        const { data } = await api.friendAdd(id, friendData);
+        dispatch(fetchAllUsers());
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+export const friendRemove = (id, friendData) => async (dispatch) => {
+    try {
+        const { data } = await api.friendRemove(id, friendData);
+        dispatch(fetchAllUsers);
+    } catch (error) {
+        console.log(error.message)
+    }
+}

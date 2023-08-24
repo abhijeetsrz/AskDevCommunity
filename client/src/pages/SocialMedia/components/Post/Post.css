@@ -1,0 +1,61 @@
+.Post
+{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: var(--cardColor);
+    border-radius: 1rem;
+    gap: 1rem;
+}
+
+.Post>img{
+    width: 100%;
+    max-height: 20rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.postReact{
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}  
+
+/* Basic button styles */
+.friend-button {
+    display: inline-block;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: #007bff; /* Change to your desired background color */
+  }
+  
+  /* Button on hover */
+  .friend-button:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+  }
+  
+  /* Button when clicked or active */
+  .friend-button:active {
+    background-color: #003c80; /* Even darker shade for active effect */
+  }
+  
+  /* Disabled button styles */
+  .friend-button.disabled {
+    background-color: #b3b3b3; /* Change to a suitable disabled color */
+    cursor: not-allowed;
+  }
+  
+  /* Icon next to the text (assuming you have an icon font) */
+  .friend-button .icon {
+    margin-right: 5px;
+  }
+  
+  /* You can add more specific styles or modify these as needed */
+  

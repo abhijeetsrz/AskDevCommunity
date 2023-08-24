@@ -35,3 +35,46 @@ export const updateProfile = async (req, res) => {
       res.status(405).json({ message: error.message })
    }
 }
+
+export const friendAddController = async (req, res) => {
+    const { id: _id } = req.params;
+    const { userId } = req.body;
+
+   if(!mongoose.Types.ObjectId.isValid(_id)){
+      return res.status(404).send('user unavailable...');
+   }
+
+   try {
+
+      const user = await User.findById(_id);
+
+      user.friend.push(String(userId));
+      await User.findByIdAndUpdate(_id, user);
+      res.status(200).json({ message: "Added successfully" });
+
+   } catch (error) {
+      res.status(404).json({ message: "id not found" })
+   }
+}
+
+export const friendRemoveController = async (req, res) => {
+    const { id: _id } = req.params;
+    const { userId } = req.body;
+
+   if(!mongoose.Types.ObjectId.isValid(_id)){
+      return res.status(404).send('user unavailable...');
+   }
+
+   try {
+
+      const user = await User.findById(_id);
+      
+      user.friend = user.friend.filter((id) => id !== String(userId));
+      await User.findByIdAndUpdate(_id, user);
+      res.status(200).json({ message: "removed successfully"});
+
+   } catch (error) {
+      res.status(404).json({ message: "id not found" });
+   }
+}
+

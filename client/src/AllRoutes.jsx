@@ -10,6 +10,7 @@ import DisplayQuestion from './pages/Questions/DisplayQuestion'
 import Tags from './pages/Tags/Tags'
 import Users from './pages/Users/Users'
 import UserProfile from './pages/UserProfile/UserProfile'
+import App from './pages/SocialMedia/App'
 
 
 const AllRoutes = () => {
@@ -23,6 +24,7 @@ const AllRoutes = () => {
         <Route path='/Tags' element = {<Tags/>} />
         <Route path='/Users/:id' element = {<UserProfile/>} />
         <Route path='/Users' element = {<Users/>} />
+        <Route path='/SocialMedia' element = {<App/>} />
       </Routes>
   )
 }

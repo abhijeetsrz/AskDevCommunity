@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API = axios.create({ baseURL: 'https://stack-over-flow-main.vercel.app' })
+const API = axios.create({ baseURL: 'http://localhost:5000' })
 
 API.interceptors.request.use((req) => {
     if(localStorage.getItem('profile')){
@@ -26,3 +26,16 @@ export const deleteAnswer = (id, answerId, noOfAnswers) => API.patch(`/answer/de
 export const fetchAllUsers = () => API.get('/user/getAllUsers');
 
 export const updateProfile = (id, updateData) => API.patch(`/user/update/${id}`, updateData)
+
+
+//social Media Posts
+
+export const uploadImage = (data) => API.post('/upload', data)
+
+export const uploadPost = (data) => API.post('/posts', data)
+
+export const getTimelinePosts = () => API.get('posts/timeline')  
+
+export const friendAdd = (id, data) => API.patch(`/user/friendAdd/${id}`, data); 
+
+export const friendRemove = (id, data) => API.patch(`/user/friendRemove/${id}`, data)

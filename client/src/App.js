@@ -5,7 +5,9 @@ import './App.css';
 import Navbar from './components/navbar/Navbar';
 import AllRoutes from './AllRoutes';
 import { fetchAllQuestions } from './actions/question';
-import { fetchAllUsers } from './actions/users'; 
+
+import { getTimelinePosts } from './actions/postAction'
+import { setCurrentUser } from './actions/currentUser';
 
 
 function App() {
@@ -13,9 +15,10 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() =>{
+      dispatch(setCurrentUser(JSON.parse(localStorage.getItem('profile'))))
       dispatch(fetchAllQuestions())
-      dispatch(fetchAllUsers())
-  },[dispatch])
+      dispatch(getTimelinePosts())
+    },[dispatch])
 
   return (
     <div className="App">
